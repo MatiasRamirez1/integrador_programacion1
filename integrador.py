@@ -180,23 +180,34 @@ def filtrar_paises(paises):
     mostrar_paises(resultado)
 
 
+
 def ordenar_paises(paises):
-    """Ordena países por nombre, población o superficie (ascendente o descendente)."""
+    """Ordena países por nombre, población o superficie."""
     print("Ordenar por: 1. Nombre  2. Población  3. Superficie")
     opcion = input("Opción: ").strip()
+
     if opcion not in ("1", "2", "3"):
         print("Opción inválida.")
         return
+
     descendente = input("¿Descendente? (s/n): ").strip().lower()
+
     if descendente not in ("s", "n"):
         print("Ingresá s o n.")
         return
-    claves = {"1": "nombre", "2": "poblacion", "3": "superficie"}
-    # Para el nombre se ordena el texto normalizado; para los números, el valor tal cual
-    ordenados = sorted(paises, key=lambda p: normalizar(p[claves[opcion]])
-                       if opcion == "1" else p[claves[opcion]],
-                       reverse=(descendente == "s"))
+
+    if opcion == "1":
+        ordenados = sorted(paises, key=lambda p: normalizar(p["nombre"]))
+    elif opcion == "2":
+        ordenados = sorted(paises, key=lambda p: p["poblacion"])
+    else:
+        ordenados = sorted(paises, key=lambda p: p["superficie"])
+
+    if descendente == "s":
+        ordenados.reverse()
+
     mostrar_paises(ordenados)
+
 
 
 def mostrar_estadisticas(paises):
