@@ -53,9 +53,9 @@ def pedir_entero(mensaje, minimo=0):
         return numero
 
 
-# ---------------------------------------------------------------
+# =====================
 # MANEJO DEL ARCHIVO CSV
-# ---------------------------------------------------------------
+# ======================
 
 def cargar_paises():
     """Lee los países del CSV y devuelve una lista de diccionarios."""
@@ -102,9 +102,9 @@ def guardar_paises(paises):
         return False
 
 
-# ---------------------------------------------------------------
+# ------------------------------------------
 # FUNCIONALIDADES DEL SISTEMA
-# ---------------------------------------------------------------
+# ------------------------------------------
 
 def mostrar_paises(lista):
     """Muestra una lista de países con el total al final"""
@@ -222,9 +222,9 @@ def mostrar_estadisticas(paises):
         print(f"  {continente}: {cantidad}")
 
 
-# ---------------------------------------------------------------
+# --------------------------
 # MENÚ Y PROGRAMA PRINCIPAL
-# ---------------------------------------------------------------
+# --------------------------
 
 def mostrar_menu():
     """Imprime las opciones del menú principal."""
